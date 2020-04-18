@@ -23,12 +23,12 @@ public class Mover : MonoBehaviour {
         lr = GetComponentInChildren<LineRenderer>();
         cam = Camera.main;
         if (dir == direction.Vertical) {
-            lr.SetPosition(0, (Vector3.up * -trackLength) + transform.position);
-            lr.SetPosition(1, (Vector3.up * trackLength) + transform.position);
+            lr.SetPosition(0, (Vector3.up * -trackLength) + intialPosition);
+            lr.SetPosition(1, (Vector3.up * trackLength) + intialPosition);
         }
         else {
-            lr.SetPosition(0, (Vector3.right * -trackLength) + transform.position);
-            lr.SetPosition(1, (Vector3.right * trackLength) + transform.position);
+            lr.SetPosition(0, (Vector3.right * -trackLength) + intialPosition);
+            lr.SetPosition(1, (Vector3.right * trackLength) + intialPosition);
         }
     }
 
