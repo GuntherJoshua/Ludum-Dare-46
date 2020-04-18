@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FanScript : MonoBehaviour
+public class Rotater : MonoBehaviour
 {
-    public float threshhold;
     Rigidbody2D rb2d;
     Camera cam;
     float referenceAngle;
