@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573626819}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.599999, y: -2.959999, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 12, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 7906042346325935682}
@@ -126,7 +126,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 1
+  m_UseWorldSpace: 0
   m_Loop: 0
 --- !u!114 &979139535
 MonoBehaviour:
@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06e578983a353045b75236ee2ac9039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowInPlan: 0
+  allowInPlay: 0
   trackLength: 2
   dir: 1
 --- !u!1001 &9191445345730277206
@@ -152,7 +154,7 @@ PrefabInstance:
     - target: {fileID: 1313209923728812305, guid: 1fbc1816707e58348a9b27c83ca62731,
         type: 3}
       propertyPath: m_Name
-      value: Moving Fan
+      value: Moving Fan Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1313209923728812308, guid: 1fbc1816707e58348a9b27c83ca62731,
         type: 3}

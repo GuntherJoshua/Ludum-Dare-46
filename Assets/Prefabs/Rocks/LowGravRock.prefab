@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1937478625421952662}
   - component: {fileID: 1937478625421952663}
   - component: {fileID: 1937478625421952664}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowGravRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
