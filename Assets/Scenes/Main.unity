@@ -428,6 +428,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1313209923728812310, guid: 1fbc1816707e58348a9b27c83ca62731,
+        type: 3}
+      propertyPath: allowInPlan
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313209923728812310, guid: 1fbc1816707e58348a9b27c83ca62731,
+        type: 3}
+      propertyPath: allowInPlay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fbc1816707e58348a9b27c83ca62731, type: 3}
 --- !u!1 &1056344882 stripped
@@ -5596,15 +5606,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7344902147269990038, guid: 6430b378fcd2d6442bc0832d4d8a0462,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 15
+    - target: {fileID: 979139535, guid: 6430b378fcd2d6442bc0832d4d8a0462, type: 3}
+      propertyPath: allowInPlan
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7344902147269990038, guid: 6430b378fcd2d6442bc0832d4d8a0462,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 5
+    - target: {fileID: 979139535, guid: 6430b378fcd2d6442bc0832d4d8a0462, type: 3}
+      propertyPath: allowInPlay
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7906042346325935682, guid: 6430b378fcd2d6442bc0832d4d8a0462,
         type: 3}
@@ -5665,6 +5673,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Moving Fan
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906042346325935687, guid: 6430b378fcd2d6442bc0832d4d8a0462,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6430b378fcd2d6442bc0832d4d8a0462, type: 3}
