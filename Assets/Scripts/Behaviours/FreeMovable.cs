@@ -7,10 +7,12 @@ public class FreeMovable : GameItem
 
     Camera cam;
     Vector3 relativePos;
+    Rigidbody2D rb2d;
 
     void Start()
     {
         cam = Camera.main;
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
 
@@ -23,6 +25,6 @@ public class FreeMovable : GameItem
         if (!Allowed) return;
         Debug.Log(true);
         var mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = mousePos + relativePos;
+        rb2d.MovePosition(mousePos + relativePos);
     }
 }

@@ -13,8 +13,10 @@ public class Mover : GameItem {
     Vector3 initPos;
     LineRenderer lr;
     Camera cam;
+    Rigidbody2D rb2d;
 
     void Start() {
+        rb2d = GetComponent<Rigidbody2D>();
         initPos = transform.position;
         lr = GetComponentInChildren<LineRenderer>();
         cam = Camera.main;
@@ -41,13 +43,13 @@ public class Mover : GameItem {
         if (!Allowed) return;
         var mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         if (dir == direction.Horizontal) {
-            transform.position = new Vector3(
+            rb2d.MovePosition(new Vector2(
                 Mathf.Clamp(mousePos.x + relativePos.x, -trackLength + initPos.x, trackLength + initPos.x),
-                initPos.y);
+                initPos.y));
         }
         else {
-            transform.position = new Vector3(initPos.x,
-                Mathf.Clamp(mousePos.y + relativePos.y, -trackLength + initPos.y, trackLength + initPos.y));
+            rb2d.MovePosition( new Vector2(initPos.x,
+                Mathf.Clamp(mousePos.y + relativePos.y, -trackLength + initPos.y, trackLength + initPos.y)));
         }
     }
 }
