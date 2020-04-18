@@ -1,12 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Mover : MonoBehaviour
-{
+public class Mover : MonoBehaviour {
     public float trackLength;
-    public enum direction
-    {
+    public enum direction {
         Horizontal,
         Vertical
     };
@@ -17,44 +13,36 @@ public class Mover : MonoBehaviour
     Camera cam;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
+
         intialPosition = transform.position;
         lr = GetComponentInChildren<LineRenderer>();
         cam = Camera.main;
-        if (dir == direction.Vertical)
-        {
+
+        //Draw Line
+        if (dir == direction.Vertical) {
             lr.SetPosition(0, (Vector3.up * -trackLength) + transform.position);
             lr.SetPosition(1, (Vector3.up * trackLength) + transform.position);
         }
-        else
-        {
+        else {
             lr.SetPosition(0, (Vector3.right * -trackLength) + transform.position);
             lr.SetPosition(1, (Vector3.right * trackLength) + transform.position);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnMouseDown()
-    {
+    // Gets position relative to fan
+    private void OnMouseDown() {
         relativePosition = transform.position - cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    private void OnMouseDrag()
-    {
+    // Moves fan to the cursor
+    private void OnMouseDrag() {
         var mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        if ( dir == direction.Horizontal){
-            transform.position = new Vector3(Mathf.Clamp(mousePos.x, -trackLength + intialPosition.x, trackLength + intialPosition.x), intialPosition.y) - relativePosition;
+        if (dir == direction.Horizontal) {
+            transform.position = new Vector3(Mathf.Clamp(mousePos.x + relativePosition.x, -trackLength + intialPosition.x, trackLength + intialPosition.x), intialPosition.y);
         }
-        else
-        {
-            transform.position = new Vector3(intialPosition.x , Mathf.Clamp(mousePos.y, -trackLength + intialPosition.y, trackLength + intialPosition.y));
+        else {
+            transform.position = new Vector3(intialPosition.x, Mathf.Clamp(mousePos.y + relativePosition.y, -trackLength + intialPosition.y, trackLength + intialPosition.y)); ;
         }
     }
 }
