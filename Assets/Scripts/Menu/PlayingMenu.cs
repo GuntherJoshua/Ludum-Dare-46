@@ -7,5 +7,6 @@ public class PlayingMenu : MonoBehaviour
 {
     public void Restart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("PlanMenu", LoadSceneMode.Additive);
     }
 }

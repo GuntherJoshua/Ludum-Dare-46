@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 
 public class PlanningMenu : MonoBehaviour {
     public delegate void UnitEventHandler();
@@ -11,5 +8,11 @@ public class PlanningMenu : MonoBehaviour {
     public void StartPlaying() {
         GameState.PlanningStage = false;
         if (onGameStart != null) onGameStart();
+    }
+
+    private void OnDestroy() {
+        //we make sure to clear events like this, otherwise nonexistent objects will have their events called after
+        // a scene reload
+        onGameStart = null;
     }
 }
