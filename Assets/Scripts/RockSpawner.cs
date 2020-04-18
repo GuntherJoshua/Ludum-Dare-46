@@ -23,8 +23,13 @@ public class RockSpawner : MonoBehaviour {
     public GameObject[] rocks;
     public RockSpawn[] eventSystem;
 
+    
     // Start is called before the first frame update
     void Start() {
+        PlanningMenu.onGameStart += StartPlaying;
+    }
+
+    void StartPlaying() {
         foreach(RockSpawn rock in eventSystem) {
             StartCoroutine(wait(rock.delay, rocks[(int)rock.spawnObject], rock.spawns));
         }
@@ -40,5 +45,4 @@ public class RockSpawner : MonoBehaviour {
         yield return new WaitForSeconds(seconds);
         Spawn(rockType, spawns);
     }
-
 }
