@@ -19,6 +19,7 @@ public class Mover : GameItem {
         rb2d = GetComponent<Rigidbody2D>();
         initPos = transform.position;
         lr = GetComponentInChildren<LineRenderer>();
+        lr.useWorldSpace = true;
         cam = Camera.main;
 
         //Draw Line
