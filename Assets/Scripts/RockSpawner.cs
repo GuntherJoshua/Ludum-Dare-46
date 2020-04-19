@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 [Serializable]public class RockSpawn {
     public enum rocks {
@@ -22,23 +24,20 @@ public class RockSpawner : MonoBehaviour {
 
     public GameObject[] rocks;
     public RockSpawn[] eventSystem;
-
+    public static int TotalSpawns;
     
-    // Start is called before the first frame update
     void Start() {
-        PlanningMenu.onGameStart += StartPlaying;
+        GameState.Instance.OnGameStart += StartPlaying;
+        TotalSpawns = eventSystem.Sum(spawn => spawn.spawns);
     }
 
     void StartPlaying() {
-        foreach(RockSpawn rock in eventSystem) {
-            StartCoroutine(wait(rock.delay, rocks[(int)rock.spawnObject], rock.spawns));
-        }
+        foreach(RockSpawn rock in eventSystem)
+            StartCoroutine(wait(rock.delay, rocks[(int) rock.spawnObject], rock.spawns));
     }
 
     void Spawn(GameObject rockType, int spawns) {
-        for (int i = 0; i < spawns; i++) {
-            Instantiate(rockType, transform);
-        }
+        for (int i = 0; i < spawns; i++) Instantiate(rockType, transform);
     }
 
     IEnumerator wait(float seconds, GameObject rockType, int spawns) {

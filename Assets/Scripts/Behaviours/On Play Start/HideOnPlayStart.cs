@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HideOnPlayStart : MonoBehaviour {
     void Start() {
-        PlanningMenu.onGameStart += StartPlaying;
+        GameState.Instance.OnGameStart += StartPlaying;
     }
 
     void StartPlaying() {
