@@ -27,6 +27,10 @@ public class GameState : MonoBehaviour {
         Instance = this;
         if (SceneManager.GetActiveScene().buildIndex > LatestStage)
             PlayerPrefs.SetInt("latestStage", LatestStage + 1);
+        
+        //Quick dirty check to see if the menu hasn't already been loaded
+        if (GameObject.Find("Planning Menu") == null)
+            SceneManager.LoadScene("PlanMenu", LoadSceneMode.Additive);
     }
 
     //TODO run inside the win box script
@@ -45,12 +49,10 @@ public class GameState : MonoBehaviour {
 
     public static void LoadStage(string name) {
         SceneManager.LoadScene(name);
-        SceneManager.LoadScene("PlanMenu", LoadSceneMode.Additive);
     }
 
     public static void LoadStage(int id) {
         SceneManager.LoadScene(id);
-        SceneManager.LoadScene("PlanMenu", LoadSceneMode.Additive);
     }
 
     /** Loads the stage the player has not yet beaten. */
