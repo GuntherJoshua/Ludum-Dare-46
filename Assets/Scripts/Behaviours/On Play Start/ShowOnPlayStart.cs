@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShowOnPlayStart : MonoBehaviour {
     void Start() {
         gameObject.SetActive(false);
-        PlanningMenu.onGameStart += StartPlaying;
+        GameState.Instance.OnGameStart += StartPlaying;
     }
 
     void StartPlaying() {

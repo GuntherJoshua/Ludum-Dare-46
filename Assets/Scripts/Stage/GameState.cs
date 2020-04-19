@@ -23,7 +23,7 @@ public class GameState : MonoBehaviour {
 
     private const int FirstStageId = 1;
 
-    void Start() {
+    void OnEnable() {
         Instance = this;
         if (SceneManager.GetActiveScene().buildIndex > LatestStage)
             PlayerPrefs.SetInt("latestStage", LatestStage + 1);
